@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Station Navigation System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link src="" <!-- Include Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <style>
+        /* Basic styling for the search box and dropdown */
+        #searchBox {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #facilitySelect {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #facilityDetails {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Railway Station Navigation</h1>
+        <nav>
+            <ul>
+                <li><a href="#map">Map</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="map">
+            <h2>Interactive Map</h2>
+            <div id="mapid">
+                <p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10595.664876140989!2d77.57059656703886!3d12.979601369183019!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae161b5bb8ab2b%3A0xd9ce8443dbf706ee!2sKSR%20Bengaluru%20City%20Junction%20(Bangalore)!5e1!3m2!1sen!2sin!4v1725951442481!5m2!1sen!2sin"
+                        width="1700" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </p>
+            </div>
+        </section>
+        <section id="facilities">
+            <h2>Find a Facility</h2>
+            <button
+                onclick="document.location='https://www.google.com/maps/place/Plat+Form+No.+6/@12.976912,77.5676233,269m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae161b50f64233:0xdd86ab7c8b2225f0!8m2!3d12.9778126!4d77.5682036!16s%2Fg%2F11cn300sjs?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">platform</button>
+            <button
+                onclick="document.location='https://www.google.com/maps/place/Ticket+counter+IRCTC/@12.9769446,77.5675321,300m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae17276d2b8cf1:0xf1dc70ddb0d04cec!8m2!3d12.9760104!4d77.5690814!16s%2Fg%2F11hzy81zmb?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">ticketcounter</button>
+            <button
+                onclick="document.location='https://www.google.com/maps/search/Pharmacies/@12.9789259,77.5630564,1697m/data=!3m2!1e3!4b1!4m7!2m6!3m5!2sPay+and+Use+Toilet+Platform+3!3s0x3bae17d142dd5f05:0x792daaf6b980ce95!4m2!1d77.569038!2d12.979427?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">restroom</button>
+            <button
+                onclick="document.location='https://www.google.com/maps/place/Railway+Canteen/@12.9794887,77.5683207,212m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae17e6d3725faf:0x87d0cdb7f2664d9d!8m2!3d12.9794672!4d77.5700562!16s%2Fg%2F11h6t69wr2?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">food
+                court</button>
+            <button
+                onclick="document.location='https://www.google.com/maps/place/General+waiting+hall/@12.9784373,77.5682508,212m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae179aa1c67599:0x4492d1f2b3b1cbd0!8m2!3d12.9788986!4d77.5694354!16s%2Fg%2F11l31mbh75?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">waiting
+                areas</button>
+            <button
+                onclick="document.location='https://www.google.com/maps/place/Kempegowda+Railway+Station+Fly+Over/@12.9769446,77.5675321,430m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae170040604385:0x7a24b360c7ec35cd!8m2!3d12.97759!4d77.5684!16s%2Fg%2F11y44_n959?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D'">fly
+                over</button>
+            <input type="text" id="searchBox" placeholder="Search for a facility...">
+            <select id="facilitySelect">
+
+                <option value="">Select a Facility</option>
+                <option value="Ticket courter"
+                    ,src="https://www.google.com/maps/place/Ticket+counter+IRCTC/@12.9760438,77.5677387,212m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae17276d2b8cf1:0xf1dc70ddb0d04cec!8m2!3d12.9760104!4d77.5690814!16s%2Fg%2F11hzy81zmb?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D">
+                    Ticket counter</option>
+                <option value="feeding_area" ,src="">Feeding Area</option>
+                <option value="platform"
+                    ,scr="https://www.google.com/maps/place/Plat+Form+No.+6/@12.978264,77.5690957,18.5z/data=!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae161b50f64233:0xdd86ab7c8b2225f0!8m2!3d12.9778126!4d77.5682036!16s%2Fg%2F11cn300sjs?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D">
+                    Platform</option>
+                <option value="voice_guidance" ,scr="">Voice Guidance</option>
+                <option value="digital_kiosk" ,src="">Digital Kiosk</option>
+                <option value="Wheel chair accessable route" ,src="">Wheel chair accessable route</option>
+                <option value="food court"
+                    ,scr="https://www.google.com/maps/place/Railway+Canteen/@12.9794887,77.5683207,212m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae17e6d3725faf:0x87d0cdb7f2664d9d!8m2!3d12.9794672!4d77.5700562!16s%2Fg%2F11h6t69wr2?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D">
+                    food court</option>
+                <option value="waiting areas"
+                    ,scr="https://www.google.com/maps/place/General+waiting+hall/@12.9784373,77.5682508,212m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bae161b5bb8ab2b:0xd9ce8443dbf706ee!2sKSR+Bengaluru+City+Junction+(Bangalore)!8m2!3d12.9781291!4d77.5695295!16s%2Fg%2F1ydnycvps!3m5!1s0x3bae179aa1c67599:0x4492d1f2b3b1cbd0!8m2!3d12.9788986!4d77.5694354!16s%2Fg%2F11l31mbh75?entry=ttu&g_ep=EgoyMDI0MDkwNC4wIKXMDSoASAFQAw%3D%3D">
+                    waiting areas</option>
+            </select>
+
+            <div id="facilityDetails">
+                <p><strong>Name:KSR city junction</strong> <span id="facilityName"></span></p>
+                <p><strong>Description:finding routes</strong> <span id="facilityDescription"></span></p>
+                <p><strong>Location:Banglore</strong> <span id="facilityLocation"></span></p>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About This System</h2>
+            <p>Enhancing railway navigation within stations and public transport systems can significantly improve
+                passenger experience and efficiency. Integrating advanced digital signage and interactive kiosks helps
+                travelers quickly find their way and access real-time information. Implementing clear, multilingual
+                wayfinding systems and intuitive app-based navigation ensures seamless transitions between various modes
+                of transport. These improvements not only reduce confusion but also enhance overall satisfaction and
+                accessibility for all passengers..</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Railway Station Navigation System</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        // JavaScript to handle search functionality
+        const searchBox = document.getElementById('searchBox');
+        const facilitySelect = document.getElementById('facilitySelect');
+
+        // Filter options based on search input
+        searchBox.addEventListener('input', () => {
+            const filter = searchBox.value.toLowerCase();
+            const options = facilitySelect.getElementsByTagName('option');
+
+            Array.from(options).forEach(option => {
+                const text = option.textContent.toLowerCase();
+                option.style.display = text.includes(filter) ? 'block' : 'none';
+            });
+
+            // Automatically select the first matching option if there's only one
+            const visibleOptions = Array.from(options).filter(option => option.style.display !== 'none');
+            if (visibleOptions.length === 1) {
+                facilitySelect.value = visibleOptions[0].value;
+            } else {
+                facilitySelect.value = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
